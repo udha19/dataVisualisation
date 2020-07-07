@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { single } from '../assets/data';
-import mock_data from '../assets/mock.json';
-import console = require('console');
+// import mock_data from '../assets/mock.json';
 // import { MatCardModule } from '@angular/material/card';
 
 @Component({
@@ -14,7 +13,6 @@ export class AppComponent {
 
   constructor() {
     Object.assign(this, { single });
-    this.data = mock_data;
     this.country = [];
     this.countryUK = [];
     this.countryPoland = [];
@@ -24,10 +22,12 @@ export class AppComponent {
     this.processedMultiData = [];
     this.processedSingleData = [];
     this.processedStudyData = [];
-
+    this.mock_data = require("../assets/mock.json");
+    this.data = this.mock_data;
   }
-  title = 'Data Visualisation';
 
+  mock_data: any;
+  title = 'Data Visualisation';
   single: any[];
   view: any[] = [600, 400];
 
@@ -132,7 +132,7 @@ multi = [
 
   // tslint:disable-next-line: typedef
   getData(){
-    // console.log('data =>', this.data);
+    console.log('data =>', this.data);
     this.data.filter(obj => {
       if (obj.country === 'uk'){
         this.countryUK.push(obj);
