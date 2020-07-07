@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "tes"
+    }
+  },
+  "defaultProject": "tes",
+  "cli": {
+    "analytics": false
+  }
 }
