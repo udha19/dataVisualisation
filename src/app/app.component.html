@@ -103,7 +103,7 @@
     <mat-card class="mat-elevation-z8">
       <mat-card-header>
         <mat-card-title>Participant</mat-card-title>
-        <mat-card-subtitle>Participant percentage</mat-card-subtitle>
+        <mat-card-subtitle>percentage</mat-card-subtitle>
       </mat-card-header>
   
       <ngx-charts-advanced-pie-chart 
@@ -111,10 +111,11 @@
         [results]="processedSingleData"
         (select)="onSelect($event)"
         [legend]="false"
-            [labels]="false"
-            [doughnut]="true"
-            [gradient]="true"
-        (activate)="onActivate($event)" (deactivate)="onDeactivate($event)">
+        [labels]="false"
+        [doughnut]="true"
+
+        (activate)="onActivate($event)" (deactivate)="onDeactivate($event)"
+        >
       </ngx-charts-advanced-pie-chart>
   
     </mat-card>
@@ -127,7 +128,8 @@
       <mat-card-content>
   
         <ngx-charts-number-card [view]="view" [scheme]="colorScheme" [results]="processedSingleData" [cardColor]="cardColor"
-          (select)="onSelect($event)">
+          (select)="onSelect($event)"
+          >
         </ngx-charts-number-card>
   
       </mat-card-content>
@@ -135,22 +137,47 @@
   
     <mat-card class="mat-elevation-z8">
       <mat-card-header>
-        <mat-card-title>Completion</mat-card-title>
+        <mat-card-title>Participant</mat-card-title>
+        <mat-card-subtitle>By completion</mat-card-subtitle>
       </mat-card-header>
       <mat-card-content>
         <ngx-charts-bar-horizontal-2d 
           [view]="view" 
           [results]="processedMultiData" 
-          [gradient]="true" 
+          [legendPosition]="below"
+          [animations]="true"
           [xAxis]="true" 
           [yAxis]="true"
           [legend]="true" 
+          [showDataLabel]="true"
           [showXAxisLabel]="true" 
           [showYAxisLabel]="true"
           [xAxisLabel]="Compeletion" 
           [yAxisLabel]="Country" (select)="onSelect($event)" (activate)="onActivate($event)"
           (deactivate)="onDeactivate($event)">
         </ngx-charts-bar-horizontal-2d>
+      </mat-card-content>
+    </mat-card>
+
+    <mat-card class="mat-elevation-z8">
+      <mat-card-header>
+        <mat-card-title>Participat</mat-card-title>
+        <mat-card-subtitle>By study</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <ngx-charts-line-chart 
+          [view]="view" 
+          [gradient]="true" 
+          [xAxis]="true" 
+          [yAxis]="true"
+          [legend]="true" 
+          [showXAxisLabel]="true" 
+          [showYAxisLabel]="true"
+          [timeline]="true"
+          [xAxisLabel]="Compeletion" 
+          [results]="processedStudyData" (select)="onSelect($event)" (activate)="onActivate($event)"
+          (deactivate)="onDeactivate($event)">
+        </ngx-charts-line-chart>
       </mat-card-content>
     </mat-card>
   

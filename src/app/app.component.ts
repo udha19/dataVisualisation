@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { single } from '../assets/data';
 import mock_data from '../assets/mock.json';
+import console = require('console');
 // import { MatCardModule } from '@angular/material/card';
 
 @Component({
@@ -131,7 +132,7 @@ multi = [
 
   // tslint:disable-next-line: typedef
   getData(){
-    console.log('data =>', this.data);
+    // console.log('data =>', this.data);
     this.data.filter(obj => {
       if (obj.country === 'uk'){
         this.countryUK.push(obj);
@@ -149,9 +150,10 @@ multi = [
         this.countryUSA.push(obj);
       }
     });
-    console.log('data UK =>', this.countryPoland.length);
+    // console.log('data UK =>', this.countryPoland.length);
     this.processingMultiData();
     this.processingSingleData();
+    this.processingStudyData();
   }
   processingSingleData(){
     this.processedSingleData.push(
@@ -176,7 +178,7 @@ multi = [
         value: this.countryRusia.length
       }
     );
-    console.log('processed single =', this.processedSingleData);
+    // console.log('processed single =', this.processedSingleData);
   }
   // tslint:disable-next-line: typedef
   processingMultiData(){
@@ -323,7 +325,7 @@ multi = [
       ]
     }
     );
-    console.log('processedMultiData ==', this.processedMultiData);
+    // console.log('processedMultiData ==', this.processedMultiData);
   }
 
   processingStudyData(){
@@ -332,19 +334,282 @@ multi = [
     let german_sudy3_data = 0;
     let german_sudy4_data = 0;
     let german_sudy5_data = 0;
+
+    let russia_study1_data = 0;
+    let russia_study2_data = 0;
+    let russia_study3_data = 0;
+    let russia_study4_data = 0;
+    let russia_study5_data = 0;
+
+    let usa_study1_data = 0;
+    let usa_study2_data = 0;
+    let usa_study3_data = 0;
+    let usa_study4_data = 0;
+    let usa_study5_data = 0;
+
+    let uk_study1_data = 0;
+    let uk_study2_data = 0;
+    let uk_study3_data = 0;
+    let uk_study4_data = 0;
+    let uk_study5_data = 0;
+
+    let poland_study1_data = 0;
+    let poland_study2_data = 0;
+    let poland_study3_data = 0;
+    let poland_study4_data = 0;
+    let poland_study5_data = 0;
+
+    this.countryUK.filter(data => {
+      if (data.study_id === 'study1') {
+        // tslint:disable-next-line: no-unused-expression
+        uk_study1_data++;
+      }
+      if (data.study_id === 'study2') {
+        // tslint:disable-next-line: no-unused-expression
+        uk_study2_data++;
+      }
+      if (data.study_id === 'study3'){
+        uk_study3_data++;
+      }
+      if (data.study_id === 'study4'){
+        uk_study4_data++;
+      }
+      if (data.study_id === 'study5'){
+        uk_study5_data++;
+      }
+
+    });
+
+    this.countryUSA.filter(data => {
+      if (data.study_id === 'study1') {
+        // tslint:disable-next-line: no-unused-expression
+        usa_study1_data++;
+      }
+      if (data.study_id === 'study2') {
+        // tslint:disable-next-line: no-unused-expression
+        usa_study2_data++;
+      }
+      if (data.study_id === 'study3') {
+        usa_study3_data++;
+      }
+      if (data.study_id === 'study4') {
+        usa_study4_data++;
+      }
+      if (data.study_id === 'study5') {
+        usa_study5_data++;
+      }
+
+    });
     
+    this.countryRusia.filter(data => {
+      if (data.study_id === 'study1') {
+        // tslint:disable-next-line: no-unused-expression
+        russia_study1_data++;
+      }
+      if (data.study_id === 'study2') {
+        // tslint:disable-next-line: no-unused-expression
+        russia_study2_data++;
+      }
+      if (data.study_id === 'study3') {
+        russia_study3_data++;
+      }
+      if (data.study_id === 'study4') {
+        russia_study4_data++;
+      }
+      if (data.study_id === 'study5') {
+        russia_study5_data++;
+      }
+
+    });
+
+    this.countryPoland.filter(data => {
+      if (data.study_id === 'study1') {
+        // tslint:disable-next-line: no-unused-expression
+        poland_study1_data++;
+      }
+      if (data.study_id === 'study2') {
+        // tslint:disable-next-line: no-unused-expression
+        poland_study2_data++;
+      }
+      if (data.study_id === 'study3') {
+        poland_study3_data++;
+      }
+      if (data.study_id === 'study4') {
+        poland_study4_data++;
+      }
+      if (data.study_id === 'study5') {
+        poland_study5_data++;
+      }
+
+    });
+
+    this.countryGerman.filter(data => {
+      if (data.study_id === 'study1') {
+        // tslint:disable-next-line: no-unused-expression
+        german_sudy1_data++;
+      }
+      if (data.study_id === 'study2') {
+        // tslint:disable-next-line: no-unused-expression
+        german_sudy2_data++;
+      }
+      if (data.study_id === 'study3') {
+        german_sudy3_data++;
+      }
+      if (data.study_id === 'study4') {
+        german_sudy4_data++;
+      }
+      if (data.study_id === 'study5') {
+        german_sudy5_data++;
+      }
+
+    });
+
+    this.processedStudyData.push({
+      name: 'Poland',
+      series: [
+        {
+          name: 'study 1',
+          value: poland_study1_data
+        },
+        {
+          name: 'study 2',
+          value: poland_study2_data
+        },
+        {
+          name: 'study 3',
+          value: poland_study3_data
+        },
+        {
+          name: 'study 4',
+          value: poland_study4_data
+        },
+        {
+          name: 'study 5',
+          value: poland_study5_data
+        },
+      ]
+    },
+      {
+        name: 'Germany',
+        // total: this.countryGerman.length,
+        series: [
+          {
+            name: 'study 1',
+            value: german_sudy1_data
+          },
+          {
+            name: 'study 2',
+            value: german_sudy2_data
+          },
+          {
+            name: 'study 3',
+            value: german_sudy3_data
+          },
+          {
+            name: 'study 4',
+            value: german_sudy4_data
+          },
+          {
+            name: 'study 5',
+            value: german_sudy5_data
+          },
+        ]
+      },
+      {
+        name: 'UK',
+        // total: this.countryUK.length,
+        series: [
+          {
+            name: 'study 1',
+            value: uk_study1_data
+          },
+          {
+            name: 'study 2',
+            value: uk_study2_data
+          },
+          {
+            name: 'study 3',
+            value: uk_study3_data
+          },
+          {
+            name: 'study 4',
+            value: uk_study4_data
+          },
+          {
+            name: 'study 5',
+            value: uk_study5_data
+          },
+        ]
+      },
+      {
+        name: 'USA',
+        // total: this.countryUSA.length,
+        series: [
+          {
+            name: 'study 1',
+            value: usa_study1_data
+          },
+          {
+            name: 'study 2',
+            value: usa_study2_data
+          },
+          {
+            name: 'study 3',
+            value: usa_study3_data
+          },
+          {
+            name: 'study 4',
+            value: usa_study4_data
+          },
+          {
+            name: 'study 5',
+            value: usa_study5_data
+          },
+        ]
+      },
+      {
+        name: 'Russia',
+        total: this.countryRusia.length,
+        series: [
+          {
+            name: 'study 1',
+            value: russia_study1_data
+          },
+          {
+            name: 'study 2',
+            value: russia_study2_data
+          },
+          {
+            name: 'study 3',
+            value: russia_study3_data
+          },
+          {
+            name: 'study 4',
+            value: russia_study4_data
+          },
+          {
+            name: 'study 5',
+            value: russia_study5_data
+          },
+        ]
+      }
+    );
 
   }
 
   onSelect(data): void {
-      console.log('Item clicked', JSON.parse(JSON.stringify(data)));
+      // console.log('Item clicked', JSON.parse(JSON.stringify(data)));
     }
 
   onActivate(data): void {
-      console.log('Activate', JSON.parse(JSON.stringify(data)));
+      // console.log('Activate', JSON.parse(JSON.stringify(data)));
     }
 
   onDeactivate(data): void {
-      console.log('Deactivate', JSON.parse(JSON.stringify(data)));
+      // console.log('Deactivate', JSON.parse(JSON.stringify(data)));
     }
+  // onResize(event) { 
+  //   console.log('event =', event);
+  //   this.view = [600, event.target.screen.width];
+  // }
 }
